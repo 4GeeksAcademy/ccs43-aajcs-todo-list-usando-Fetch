@@ -46,8 +46,8 @@ const Home = () => {
 
     return id
   }
-  const deleteLista = (id) => {
-    let _lista = lista.filter((val) => val.id !== id);
+  const deleteLista = (indexmap) => {
+    let _lista = lista.filter((val,index) => index !== indexmap);
 
     setLista(_lista);
   };
@@ -66,11 +66,12 @@ const Home = () => {
           />
         </div>
         {lista.length != 0 ?
-          lista.map((lista) => (
+          lista.map((lista,index) => (
             <ListaRender
               lista={lista}
               deleteLista={deleteLista}
               key={lista.id}
+              index={index}
             />
           )):
           <h4 className="ms-5 py-2 m-0 fw-lighter">No hay tareas!!!</h4>

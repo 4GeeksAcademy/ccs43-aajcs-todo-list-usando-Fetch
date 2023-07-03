@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 //create your first component
-const ListaRender = ({ lista, deleteLista }) => {
+const ListaRender = ({ lista, deleteLista,index }) => {
   const [visibleDelete, setVisibleDelete] = useState(false);
 
   return (
@@ -19,7 +19,7 @@ const ListaRender = ({ lista, deleteLista }) => {
         <span
           type="button"
           className=" text-danger me-5"
-          onClick={() => deleteLista(lista.id)}
+          onClick={() => deleteLista(index)}
         >
           X
         </span>
