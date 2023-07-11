@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 //create your first component
-const ListaRender = ({ lista, deleteLista,index }) => {
+const ListaRender = ({ lista, deleteLista, index }) => {
   const [visibleDelete, setVisibleDelete] = useState(false);
 
   return (
@@ -14,7 +14,7 @@ const ListaRender = ({ lista, deleteLista,index }) => {
         setVisibleDelete(false);
       }}
     >
-      <h4 className="ms-5 py-2 m-0 fw-lighter">{lista.contenido}</h4>
+      <h4 className="ms-5 py-2 m-0 fw-lighter">{lista.label}</h4>
       {visibleDelete && (
         <span
           type="button"
