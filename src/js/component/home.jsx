@@ -57,14 +57,7 @@ const Home = () => {
         },
       };
       const response = await fetch(API_URL, requestConfig);
-      const body = await response.json();
-      console.log(body.msg);
-      if (
-        body.msg ===
-        "The request body is empty but it must be an array of todo's"
-      ) {
-        setLista([]);
-      }
+       
       if (response.ok) {
         leerDatos();
       }
@@ -92,30 +85,24 @@ const Home = () => {
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
       const agregarLista = {
-        id: createId(),
+       
         label: nuevaLista,
         done: true,
       };
-      setLista([...lista, agregarLista]);
       actualizarLista([...lista, agregarLista]);
       setNuevaLista("");
     }
   };
-  const createId = () => {
-    let id = "";
-    let chars =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-
-    for (let i = 0; i < 5; i++) {
-      id += chars.charAt(Math.floor(Math.random() * chars.length));
-    }
-
-    return id;
-  };
+  
   const deleteLista = (indexmap) => {
     let _lista = lista.filter((val, index) => index !== indexmap);
+    if (lista.length === 1) {
+      borrarTodaLista()
+    } else {
+      
+      actualizarLista(_lista);
+    }
 
-    actualizarLista(_lista);
   };
   return (
     <div className="container ">
