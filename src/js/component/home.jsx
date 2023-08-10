@@ -10,7 +10,8 @@ const Home = () => {
   }, []);
   const leerDatos = async () => {
     try {
-      const API_URL = "https://assets.breatheco.de/apis/fake/todos/user/aajcs";
+      const API_URL =
+        "https://playground.4geeks.com/apis/fake/todos/user/aajcs";
       const requestConfig = {
         method: "GET",
         headers: {
@@ -30,7 +31,8 @@ const Home = () => {
   };
   const crearDatos = async () => {
     try {
-      const API_URL = "https://assets.breatheco.de/apis/fake/todos/user/aajcs";
+      const API_URL =
+        "https://playground.4geeks.com/apis/fake/todos/user/aajcs";
       const requestConfig = {
         method: "POST",
         body: JSON.stringify([]),
@@ -48,7 +50,8 @@ const Home = () => {
       await crearDatos();
     }
     try {
-      const API_URL = "https://assets.breatheco.de/apis/fake/todos/user/aajcs";
+      const API_URL =
+        "https://playground.4geeks.com/apis/fake/todos/user/aajcs";
       const requestConfig = {
         method: "PUT",
         body: JSON.stringify(valor),
@@ -57,7 +60,7 @@ const Home = () => {
         },
       };
       const response = await fetch(API_URL, requestConfig);
-       
+
       if (response.ok) {
         leerDatos();
       }
@@ -67,7 +70,8 @@ const Home = () => {
   };
   const borrarTodaLista = async () => {
     try {
-      const API_URL = "https://assets.breatheco.de/apis/fake/todos/user/aajcs";
+      const API_URL =
+        "https://playground.4geeks.com/apis/fake/todos/user/aajcs";
       const requestConfig = {
         method: "DELETE",
         headers: {
@@ -85,7 +89,6 @@ const Home = () => {
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
       const agregarLista = {
-       
         label: nuevaLista,
         done: true,
       };
@@ -93,16 +96,14 @@ const Home = () => {
       setNuevaLista("");
     }
   };
-  
+
   const deleteLista = (indexmap) => {
     let _lista = lista.filter((val, index) => index !== indexmap);
     if (lista.length === 1) {
-      borrarTodaLista()
+      borrarTodaLista();
     } else {
-      
       actualizarLista(_lista);
     }
-
   };
   return (
     <div className="container ">
